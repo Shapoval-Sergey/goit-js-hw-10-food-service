@@ -7,7 +7,7 @@ bodyRef = document.querySelector('body');
 bodyRef.classList.add(Theme.LIGHT);
 
 inputRef = document.querySelector('.js-switch-input');
-console.log(inputRef);
+console.dir(inputRef);
 
 function onChangeTheme(event) {
   if (event.target.checked) {
@@ -24,8 +24,13 @@ function onChangeTheme(event) {
     localStorage.setItem('Theme', JSON.stringify(Theme.LIGHT));
   }
 }
+const valueTheme = localStorage.getItem('Theme');
+const parseValueTheme = JSON.parse(valueTheme);
 
-const valueTheme = getItem('Theme');
-console.log(valueTheme);
+if (parseValueTheme === Theme.DARK) {
+  bodyRef.classList.remove(Theme.LIGHT);
+  bodyRef.classList.add(Theme.DARK);
+  inputRef.checked = true;
+}
 
 inputRef.addEventListener('change', onChangeTheme);
