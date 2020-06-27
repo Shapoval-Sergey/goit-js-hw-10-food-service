@@ -19,7 +19,7 @@ body {
   /*
    * CSS image reference example.
    */
-  background-image: url('./images/bg-pattern.png');
+  /* background-image: url('./images/bg-pattern.png'); */
 }
 
 body.light-theme {
@@ -47,7 +47,6 @@ body.dark-theme {
 
 .theme-switch__icon {
   color: currentColor;
-  width: 26px;
   height: 26px;
   margin-right: 8px;
   margin-left: 8px;
@@ -108,6 +107,7 @@ body.dark-theme {
 .switch__marker {
   position: relative;
   background-color: #fff;
+  width: 26px;
   height: 26px;
   border-radius: 50%;
   z-index: 2;
