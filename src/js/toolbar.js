@@ -13,19 +13,17 @@ function onChangeTheme(event) {
   if (event.target.checked) {
     bodyRef.classList.remove(Theme.LIGHT);
     bodyRef.classList.add(Theme.DARK);
-    localStorage.removeItem('Theme', JSON.stringify(Theme.LIGHT));
-    localStorage.setItem('Theme', JSON.stringify(Theme.DARK));
+    localStorage.setItem('Theme', Theme.DARK);
   }
 
   if (!event.target.checked) {
     bodyRef.classList.add(Theme.LIGHT);
     bodyRef.classList.remove(Theme.DARK);
-    localStorage.removeItem('Theme', JSON.stringify(Theme.DARK));
-    localStorage.setItem('Theme', JSON.stringify(Theme.LIGHT));
+    localStorage.setItem('Theme', Theme.LIGHT);
   }
 }
 const valueTheme = localStorage.getItem('Theme');
-const parseValueTheme = JSON.parse(valueTheme);
+const parseValueTheme = valueTheme;
 
 if (parseValueTheme === Theme.DARK) {
   bodyRef.classList.remove(Theme.LIGHT);
