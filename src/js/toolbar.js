@@ -9,17 +9,19 @@ bodyRef.classList.add(Theme.LIGHT);
 inputRef = document.querySelector('.js-switch-input');
 console.dir(inputRef);
 
+function onReplacementTheme(oldTheme, newTheme) {
+  bodyRef.classList.remove(oldTheme);
+  bodyRef.classList.add(newTheme);
+  localStorage.setItem('Theme', newTheme);
+}
+
 function onChangeTheme(event) {
   if (event.target.checked) {
-    bodyRef.classList.remove(Theme.LIGHT);
-    bodyRef.classList.add(Theme.DARK);
-    localStorage.setItem('Theme', Theme.DARK);
+    onReplacementTheme(Theme.LIGHT, Theme.DARK);
   }
 
   if (!event.target.checked) {
-    bodyRef.classList.add(Theme.LIGHT);
-    bodyRef.classList.remove(Theme.DARK);
-    localStorage.setItem('Theme', Theme.LIGHT);
+    onReplacementTheme(Theme.DARK, Theme.LIGHT);
   }
 }
 const valueTheme = localStorage.getItem('Theme');
